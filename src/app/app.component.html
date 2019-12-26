@@ -1,0 +1,19 @@
+<div class='container'>
+  <div class="page-header">
+    <h1>Welcome to YouTube Video Search Web App</h1>
+    <h3>by Syafiq Nadzri and Nadia Nazri</h3>
+    <p>Insert your keyword in the field box below. My app will immediately show the results order by top 10 latest upload
+      <img style="float: center;" *ngIf="loading" src='assets/images/loading.gif' />
+    </p>
+
+  <div class="row">
+    <div class="input-group input-group-lg col-sm-8 col-md-8">
+      <app-search-box (loading)="loading = $event" (results)="updateResults($event)"></app-search-box>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top:20px">
+    <p>{{message}}</p>
+    <app-search-result *ngFor="let result of results" [result]="result"></app-search-result>
+  </div>
+</div>
